@@ -32,6 +32,24 @@ class _DialogDemoState extends State<DialogDemo> {
     setState(() => rezultat = obrisi == true ? 'Bilješka obrisana' : 'Brisanje otkazano');
   }
 
+
+   Future<void> izbor() async {
+    final tema = await showDialog<String>(
+      context: context,
+      builder: (context) => SimpleDialog(
+        title: const Text('Odaberi temu'),
+        children: [
+          for (final opcija in ['Svijetla', 'Tamna', 'Sustavna'])
+            SimpleDialogOption(
+              onPressed: () => Navigator.pop(context, opcija),
+              child: Text(opcija),
+            ),
+        ],
+      ),
+    );
+    if (tema != null) setState(() => rezultat = 'Odabrana tema: $tema');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,6 +61,7 @@ class _DialogDemoState extends State<DialogDemo> {
           children: [
             Text(rezultat),
             FilledButton(onPressed: potvrda, child: const Text('Potvrda brisanja')),
+            FilledButton(onPressed: izbor, child: const Text('Izbor opcije')),
           ],
         ),
       ),
