@@ -50,6 +50,29 @@ class _DialogDemoState extends State<DialogDemo> {
     if (tema != null) setState(() => rezultat = 'Odabrana tema: $tema');
   }
 
+
+    Future<void> unos() async {
+    var tekst = '';
+    final naziv = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Novi naziv'),
+        content: TextField(autofocus: true, onChanged: (v) => tekst = v),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Odustani'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, tekst),
+            child: const Text('Spremi'),
+          ),
+        ],
+      ),
+    );
+    if (naziv != null && naziv.isNotEmpty) setState(() => rezultat = 'Novi naziv: $naziv');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +85,7 @@ class _DialogDemoState extends State<DialogDemo> {
             Text(rezultat),
             FilledButton(onPressed: potvrda, child: const Text('Potvrda brisanja')),
             FilledButton(onPressed: izbor, child: const Text('Izbor opcije')),
+            FilledButton(onPressed: unos, child: const Text('Unos teksta')),
           ],
         ),
       ),
