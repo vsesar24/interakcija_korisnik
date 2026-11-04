@@ -5,7 +5,13 @@ import 'services/notifikacije.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await inicijaliziraj();
+  final pokretanje = await plugin.getNotificationAppLaunchDetails();
   runApp(const MainApp());
+
+  final odgovor = pokretanje?.notificationResponse;
+  if (pokretanje?.didNotificationLaunchApp == true && odgovor != null) {
+    WidgetsBinding.instance.addPostFrameCallback((_) => obradiKlik(odgovor));
+  }
 }
 
 class MainApp extends StatelessWidget {
