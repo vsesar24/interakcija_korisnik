@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import '../models/demo.dart';
+import '../demos/toast_demo.dart';
 
-final demos = <Demo>[];
+final demos = <Demo>[
+  Demo('Toast', Icons.chat_bubble_outline, (_) => const ToastDemo()),
+];
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
