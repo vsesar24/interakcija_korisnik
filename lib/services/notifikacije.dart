@@ -11,6 +11,7 @@ Future<void> inicijaliziraj() async {
       android: AndroidInitializationSettings('@mipmap/ic_launcher'),
     ),
     onDidReceiveNotificationResponse: obradiKlik,
+    onDidReceiveBackgroundNotificationResponse: obradiUPozadini,
   );
 }
 
@@ -20,6 +21,12 @@ void obradiKlik(NotificationResponse odgovor) {
     MaterialPageRoute(builder: (_) => DetaljiScreen(poruka: odgovor.payload ?? '')),
   );
 }
+
+@pragma('vm:entry-point')
+void obradiUPozadini(NotificationResponse odgovor) {
+  debugPrint('Akcija u pozadini: ${odgovor.actionId}');
+}
+
 
 Future<void> zatraziDozvolu() async {
   await plugin
@@ -62,6 +69,10 @@ Future<void> posaljiSlozenu() async {
         styleInformation: BigPictureStyleInformation(
           DrawableResourceAndroidBitmap('slika'),
         ),
+         actions: [
+          AndroidNotificationAction('procitano', 'Označi pročitano'),
+          AndroidNotificationAction('otvori', 'Otvori', showsUserInterface: true),
+        ],
       ),
     ),
   );
