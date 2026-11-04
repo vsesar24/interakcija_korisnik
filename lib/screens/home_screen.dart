@@ -4,12 +4,14 @@ import '../demos/toast_demo.dart';
 import '../demos/snackbar_demo.dart';
 import '../demos/fab_demo.dart';
 import '../demos/dialog_demo.dart';
+import '../demos/notifikacije_demo.dart';
 
 final demos = <Demo>[
   Demo('Toast', Icons.chat_bubble_outline, (_) => const ToastDemo()),
   Demo('SnackBar', Icons.info_outline, (_) => const SnackbarDemo()),
   Demo('FAB', Icons.add_circle_outline, (_) => const FabDemo()),
-   Demo('Dijalozi', Icons.chat_outlined, (_) => const DialogDemo()),
+  Demo('Dijalozi', Icons.chat_outlined, (_) => const DialogDemo()),
+  Demo('Notifikacije', Icons.notifications_outlined, (_) => const NotifikacijeDemo()),
 ];
 
 class HomeScreen extends StatelessWidget {
