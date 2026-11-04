@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import '../models/demo.dart';
 import '../demos/toast_demo.dart';
 import '../demos/snackbar_demo.dart';
+import '../demos/fab_demo.dart';
 
 final demos = <Demo>[
   Demo('Toast', Icons.chat_bubble_outline, (_) => const ToastDemo()),
   Demo('SnackBar', Icons.info_outline, (_) => const SnackbarDemo()),
+  Demo('FAB', Icons.add_circle_outline, (_) => const FabDemo()),
 ];
 
 class HomeScreen extends StatelessWidget {
