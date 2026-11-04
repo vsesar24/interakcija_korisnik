@@ -14,6 +14,7 @@ class NotifikacijeDemo extends StatelessWidget {
           spacing: 12,
           children: [
             FilledButton(onPressed: posaljiJednostavnu, child: const Text('Jednostavna notifikacija')),
+            FilledButton(onPressed: posaljiSlozenu, child: const Text('Notifikacija sa slikom')),
           ],
         ),
       ),

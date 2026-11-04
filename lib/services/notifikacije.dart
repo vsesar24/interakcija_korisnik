@@ -44,3 +44,25 @@ Future<void> posaljiJednostavnu() async {
     ),
   );
 }
+
+
+Future<void> posaljiSlozenu() async {
+  await zatraziDozvolu();
+  await plugin.show(
+    id: 2,
+    title: 'Nova fotografija',
+    body: 'Netko je podijelio fotografiju s tobom',
+    payload: 'Otvorena podijeljena fotografija',
+    notificationDetails: const NotificationDetails(
+      android: AndroidNotificationDetails(
+        'slozene',
+        'Obavijesti sa slikom',
+        importance: Importance.high,
+        priority: Priority.high,
+        styleInformation: BigPictureStyleInformation(
+          DrawableResourceAndroidBitmap('slika'),
+        ),
+      ),
+    ),
+  );
+}
