@@ -1,12 +1,23 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import '../screens/detalji_screen.dart';
+import 'package:flutter/material.dart';
 
 final plugin = FlutterLocalNotificationsPlugin();
+final navigatorKey = GlobalKey<NavigatorState>();
 
 Future<void> inicijaliziraj() async {
   await plugin.initialize(
     settings: const InitializationSettings(
       android: AndroidInitializationSettings('@mipmap/ic_launcher'),
     ),
+    onDidReceiveNotificationResponse: obradiKlik,
+  );
+}
+
+
+void obradiKlik(NotificationResponse odgovor) {
+  navigatorKey.currentState?.push(
+    MaterialPageRoute(builder: (_) => DetaljiScreen(poruka: odgovor.payload ?? '')),
   );
 }
 

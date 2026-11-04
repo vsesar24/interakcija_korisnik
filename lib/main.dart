@@ -16,6 +16,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: 'Interakcija s korisnikom',
       debugShowCheckedModeBanner: false,
+      navigatorKey: navigatorKey,
       theme: ThemeData(colorSchemeSeed: Colors.indigo),
       home: const HomeScreen(),
     );
