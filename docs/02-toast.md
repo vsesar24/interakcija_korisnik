@@ -3,6 +3,7 @@
 Kratka poruka na dnu ekrana koja sama nestane. Nema akciju i ne može se kliknuti.
 
 <img src="slike/toast_zaslon.png" width="250">
+<img src="slike/toast-prikaz.png" width="250">
 
 Koristi se za kratke potvrde ("Spremljeno"). Ne koristi se za greške i važne poruke, jer ih korisnik lako propusti. Kad je aplikacija otvorena, Android preporučuje snackbar umjesto toasta [1]. Od Androida 11 se pozicija tekstualnog toasta ne može mijenjati [11].
 

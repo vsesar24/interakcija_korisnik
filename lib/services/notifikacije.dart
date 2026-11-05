@@ -1,6 +1,7 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import '../screens/detalji_screen.dart';
 import 'package:flutter/material.dart';
+import '../screens/slika_screen.dart';
 
 final plugin = FlutterLocalNotificationsPlugin();
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -17,9 +18,11 @@ Future<void> inicijaliziraj() async {
 
 
 void obradiKlik(NotificationResponse odgovor) {
-  navigatorKey.currentState?.push(
-    MaterialPageRoute(builder: (_) => DetaljiScreen(poruka: odgovor.payload ?? '')),
-  );
+  final ekran = odgovor.actionId == 'slika'
+      ? const SlikaScreen()
+      : DetaljiScreen(poruka: odgovor.payload ?? '');
+
+  navigatorKey.currentState?.push(MaterialPageRoute(builder: (_) => ekran));;
 }
 
 @pragma('vm:entry-point')
@@ -71,7 +74,7 @@ Future<void> posaljiSlozenu() async {
         ),
          actions: [
           AndroidNotificationAction('procitano', 'Označi pročitano'),
-          AndroidNotificationAction('otvori', 'Otvori', showsUserInterface: true),
+          AndroidNotificationAction('slika', 'Pogledaj sliku', showsUserInterface: true),
         ],
       ),
     ),

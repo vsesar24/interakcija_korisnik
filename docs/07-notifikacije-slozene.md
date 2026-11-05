@@ -56,8 +56,6 @@ Commit: [4f7eb89](https://github.com/vsesar24/interakcija_korisnik/commit/4f7eb8
 
 Prvo je gumb bio "Otvori" i radio je isto što i klik na notifikaciju, a to je protiv Android preporuke [12]. Zato sad otvara sliku preko cijelog ekrana.
 
-<img src="slike/notif-slika-cijeli-ekran.png" width="220">
-
 "Pogledaj sliku" ima `showsUserInterface: true`, pa se otvori aplikacija i pozove `obradiKlik`. Po `actionId` se zna je li kliknut gumb ili sama notifikacija (tada je `actionId` `null`):
 
 ```dart
