@@ -13,7 +13,5 @@ Projekt: `Ctrl+Shift+P` → Flutter: New Project → Empty Application → samo 
 
 Commit: [51a1434](https://github.com/vsesar24/interakcija_korisnik/commit/51a1434)
 
-**Problemi:**
-- Gumb ▶ gore desno (Code Runner) ne pokreće Flutter aplikaciju. Treba koristiti `F5` ili `flutter run`.
-- Ekstenzija Gradle for Java javlja grešku. Nije potrebna, može se ugasiti.
+
 

@@ -85,4 +85,4 @@ class SlikaScreen extends StatelessWidget {
 
 Ista slika mora biti i u Flutter `assets` (prijavljena u `pubspec.yaml`), jer ovaj ekran crta Flutter, a ne Android. `InteractiveViewer` omogućuje zumiranje.
 
-Commit: COMMIT_SLIKA
+Commit: [0a04528](https://github.com/vsesar24/interakcija_korisnik/commit/0a04528)
